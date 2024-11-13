@@ -15,26 +15,30 @@ class Login extends SauceBasePage {
         return $('#login-button');
     }
 
-    async login (username, password) {
-        if (username && password) {
-            await this.inputUsername.setValue(username);
-            await this.inputPassword.setValue(password);
-            await this.btnSubmit.click();
-        } else if (!username && password) {
-            await this.inputUsername.setValue('invalidUsername');
-            await this.inputPassword.setValue(password);
-            await this.btnSubmit.click();
-        } else if (username && !password) {
-            await this.inputUsername.setValue(username);
-            await this.inputPassword.setValue('invalidPassword');
-            await this.btnSubmit.click();
-        } else {
-            await this.inputUsername.setValue('invalidPassword');
-            await this.inputPassword.setValue('invalidPassword');
-            await this.bthnSubmit.click();
-        }
-     }
-   
+
+    async positiveLogin (username, password) {
+
+        await this.inputUsername.setValue(username);
+        await this.inputPassword.setValue(password);
+        await this.btnSubmit.click();
+    }
+
+    async negativeLoginName (badUsername, password) {
+        await this.inputUsername.setValue(badUsername);
+        await this.inputPassword.setValue(password);
+        await this.btnSubmit.click();
+    }
+    async negativeLoginPassord (username, badPassword) {
+        await this.inputUsername.setValue(username);
+        await this.inputPassword.setValue(badPassword);
+        await this.btnSubmit.click();
+    }
+
+    async negativeLogin (badUsername, badPassword) {
+        await this.inputUsername.setValue(badUsername);
+        await this.inputPassword.setValue(badPassword);
+        await this.btnSubmit.click();
+    }
 
 
     openBasePage () {

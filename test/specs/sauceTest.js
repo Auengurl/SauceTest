@@ -16,7 +16,7 @@ describe('My seccessful Login application', () => {
 
             await Login.openBasePage();
 
-            await Login.negLoginName('locked_out_user', 'secret_sauce');
+            await Login.negativeLoginName('locked_out_user', 'secret_sauce');
 
             await expect(Security.flashAlert1).toBeExisting();
             await expect(Security.flashAlert1).toHaveText(
@@ -25,7 +25,7 @@ describe('My seccessful Login application', () => {
 
             await Login.openBasePage();
 
-            await Login.negLoginName('standard_user', 'asdfwoij');
+            await Login.negativeLoginName('standard_user', 'asdfwoij');
 
             await expect(Security.flashAlert2).toBeExisting();
             await expect(Security.flashAlert2).toHaveText(
