@@ -28,7 +28,7 @@ class Login extends SauceBasePage {
 
     async multiLogin (username, password){
 
-        user = this.users.find(u => u.username === username);
+      const user = this.users.find(u => u.username === username);
 
         if (user && user.password === password) {
             await this.inputUsername.setValue(username);
