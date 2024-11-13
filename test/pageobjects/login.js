@@ -54,13 +54,15 @@ class Login extends SauceBasePage {
             await expect(Security.flashAlert2).toHaveText(
                   expect.stringContaining('Epic sadface: Username and password do not match any user in this service'))
         }
+        
 }
 
 
 async testMultiLogin() {
     for (let user of this.users) {
         console.log(`Testing with username: ${user.username}`);
-        await this.multiLogin(this.user.username, this.user.password);
+        await this.multiLogin(user.username, user.password);
+        
     }
 }
 
