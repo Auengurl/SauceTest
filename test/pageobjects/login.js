@@ -28,7 +28,7 @@ class Login extends SauceBasePage {
 
     async multiLogin (username, password){
 
-        user = users.find(u => u.username === username);
+        user = this.users.find(u => u.username === username);
 
         if (user && user.password === password) {
             await this.inputUsername.setValue(username);
@@ -60,7 +60,7 @@ class Login extends SauceBasePage {
 async testMultiLogin() {
     for (let user of this.users) {
         console.log(`Testing with username: ${user.username}`);
-        await this.multiLogin(user.username, user.password);
+        await this.multiLogin(this.user.username, this.user.password);
     }
 }
 
