@@ -57,6 +57,13 @@ class Login extends SauceBasePage {
 }
 
 
+async testMultiLogin() {
+    for (let user of this.users) {
+        console.log(`Testing with username: ${user.username}`);
+        await this.multiLogin(user.username, user.password);
+    }
+}
+
     openBasePage () {
         return super.openBasePage('');
     }
