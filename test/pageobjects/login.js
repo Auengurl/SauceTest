@@ -18,6 +18,14 @@ class Login extends SauceBasePage {
         return $('#login-button');
     }
 
+    get hamburgerMenu () {
+        return $('#react-burger-menu-btn');
+    }
+
+    get logOut() {
+        return $('#logout_sidebar_link');
+    }
+
     users = [{username: 'standard_user', password: 'secret_sauce'}, 
         {username: 'locked_out_user', password: 'secret_sauce'},
         {username: 'problem_user', password: 'secret_sauce'},
@@ -62,6 +70,8 @@ async testMultiLogin() {
     for (let user of this.users) {
         console.log(`Testing with username: ${user.username}`);
         await this.multiLogin(user.username, user.password);
+        await this.hamburgerMenu.click();
+        await this.logOut.click();
         
     }
 }
