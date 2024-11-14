@@ -1,8 +1,8 @@
 import { browser } from '@wdio/globals'
 
-export default class SaucePage {
+export default class SauceBasePage {
     
-   openPage () {
+   openBasePage () {
         return browser.url(`https://www.saucedemo.com/`)
     }
 }
